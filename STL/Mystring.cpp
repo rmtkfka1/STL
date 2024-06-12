@@ -10,19 +10,6 @@
 size_t String::uid{};
 extern bool 관찰{ false };
 
-//String::String(const shared_ptr<String> other):id(++uid)
-//{
-//	len = other->len;
-//	p = std::make_unique<char[]>(len);
-//	memcpy(p.get(), other->p.get(), len);
-//
-//	if (관찰)
-//	{
-//		cout << "[" << id << "] - 복사생성자 생성(const shared_ptr<String> other),갯수:" << len;
-//		cout << "주소 :" << static_cast<void*>(p.get()) << endl;
-//	}
-//}
-
 String::String():id(++uid)
 {
 	if (관찰)
@@ -47,6 +34,7 @@ String::String(const char* s):id(++uid)
 	p = std::make_unique<char[]>(len);
 	memcpy(p.get(), s, len);
 
+
 	if (관찰)
 	{
 		cout << "[" << id << "] -생성자 생성(const char*),갯수:" << len;
@@ -59,6 +47,7 @@ String::String(const String& other):id(++uid)
 	len = other.len;
 	p = std::make_unique<char[]>(len);
 	memcpy(p.get(), other.p.get(), len);
+
 
 	if (관찰)
 	{
@@ -80,7 +69,6 @@ String& String::operator=(const String& rhs)
 	p.release();
 	p = std::make_unique<char[]>(len);
 	memcpy(p.get(), rhs.p.get(), len);
-
 	if (관찰)
 	{
 		cout << "[" << id << "] - 복사 할당 생성,갯수:" << len;
@@ -132,6 +120,12 @@ bool String::operator==(const String& other) const
 
 }
 
+bool String::operator<(const String& other) const
+{
+	return std::lexicographical_compare(p.get(), p.get() + len,
+		other.p.get(), other.p.get() + other.len);
+}
+
 
 //입출력함수 오버로딩
 std::ostream& operator<<(std::ostream& os, const String& s)
@@ -150,27 +144,10 @@ std::istream& operator>>(istream& is, String& other)
 	std::string str;
 	is >> str;
 
-
-
 	other.len = str.size();
 	other.p = make_unique<char[]>(other.len);
 	memcpy(other.p.get(), str.data(), other.len);
 
 	return is;
-	//std::string str;
-	//// Read string using >> operator
-	//is >> str;
-
-	//// Allocate memory for the string in String object
-	//other.p.reset(new char[str.length() + 1]);
-
-	//// Copy string content to the allocated memory
-	//memcpy(other.p.get(), str.c_str(), str.length() + 1);
-
-	//// Update length
-	//other.len = str.length();
-
-	//return is;
-
 
 }

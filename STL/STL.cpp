@@ -1,63 +1,50 @@
-//-------------------------------------------------------------------------------------------------------
-//                          2024. 1학기 STL 4월 18일 목요일  (7 주 2)                                   //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+// 14주 1일쨰
+// 
+// 
+// STL Alogrithm  => non modifying   / modifying   /  sort and realated 
+// non modifying: copy(src,dest) :
 //
-// 4월 25일 (8주 2일) - 중간시험
-// STL container - Sequence - deque
-// 덱-> 벡터와 리스트의 짬뽕
-// push_back , push_front => o(1) 알고리즘
-// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
-//-------------------------------------------------------------------------------------------------------
-
+//
+// distacne 구현
+// tag dispatching
+////////////////////////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
-#include "save.h"
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
 #include <array>
 #include "Mystring.h"
-#include <algorithm>
-#include <deque>
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
 #include <vector>
+#include <numeric>
+#include <thread>
+#include <forward_list>
+
 using namespace std;
 
 
 
 
 int main()
-{
-	관찰 = false;
+{	
 
-	vector<shared_ptr<String>> a;
-	관찰 = true;
+	list<int> li{ 1,2,3 };
 
-	a.push_back(make_shared<String>("hello world"));
-	a.push_back(make_shared<String>("wafawfaw"));
-	a.push_back(make_shared<String>("15454823"));
+	/*sort(li.begin(), li.end());*/
 
-	관찰 = false;
-	//for (String& s : a)
-	//{
-	//	cout << s << endl;
-	//}
-
-	//관찰 = true;
-	std::sort(a.begin(), a.end(), [](const auto& a, const auto& b)
-		{
-			return a->GetLen() < b->GetLen();
-		});
-	관찰 = false;
-
-	for (const auto& s : a)
-	{
-		sort(s->GetPtr(), s->GetPtr() + s->GetLen());
-	}
+	ranges::sort(li.begin(), li.end());
 
 
-	//[문제] a의 각 string 이 관리하는 글자를 오름차순으로 정렬하라.
-
-	for (const auto& s: a)
-	{
-		cout << *s << endl;
-	}
+	li.sort();
 
 	//save("STL.cpp");
 }
-
-

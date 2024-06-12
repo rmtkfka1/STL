@@ -20008,3 +20008,6967 @@ int main()
 }
 
 
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 1:53:37
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	관찰 = true;
+	
+	v.emplace_back("333");
+	v.emplace_front("1");
+	v.emplace(++(v.begin()), "22");
+
+	for (auto& i : v) {
+		cout << i << endl;
+	}
+
+
+	관찰 = false;
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:11:19
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+	관찰 = true;
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	String s;
+
+	while (in >> s) {
+		v.emplace_back(s);
+	}
+
+	for (auto& i : v) {
+		cout << i << endl;
+	}
+
+	관찰 = false;
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:11:59
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+	관찰 = true;
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+		v = { istream_iterator<String>{in},{} };
+
+	for (auto& i : v) {
+		cout << i << endl;
+	}
+
+	관찰 = false;
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:14:17
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+	관찰 = true;
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+	v = { istream_iterator<String>{in},{} };
+
+	for (auto& i : v) {
+		cout << i << endl;
+	}
+
+	//길이오름차순으로 정렬하라.
+
+	//sort(v.begin(), v.end(), [](const auto& s1, const auto& s2) {
+	//	return s1.GetLen() < s2.GetLen();
+	//	});
+
+	for (auto& i : v) {
+		cout << i << endl;
+	}
+
+	관찰 = false;
+
+
+
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:23:26
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+	관찰 = true;
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+	v = { istream_iterator<String>{in},{} };
+
+
+	//길이오름차순으로 정렬하라.
+
+	/*sort(v.begin(), v.end(), [](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});*/
+
+	cout << *v.end() << endl;
+
+	/*for (auto& i : v) {
+		cout << i << endl;
+	}*/
+
+	관찰 = false;
+
+
+
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:24:42
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+	//관찰 = true;
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+	v = { istream_iterator<String>{in},{} };
+
+
+	//길이오름차순으로 정렬하라.
+
+	/*sort(v.begin(), v.end(), [](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});*/
+
+	cout << *v.begin() << endl;
+
+	/*for (auto& i : v) {
+		cout << i << endl;
+	}*/
+
+	관찰 = false;
+
+
+
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:24:50
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+	//관찰 = true;
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+	v = { istream_iterator<String>{in},{} };
+
+
+	//길이오름차순으로 정렬하라.
+
+	/*sort(v.begin(), v.end(), [](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});*/
+
+	cout << *v.end() << endl;
+
+	/*for (auto& i : v) {
+		cout << i << endl;
+	}*/
+
+	관찰 = false;
+
+
+
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:25:06
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+	//관찰 = true;
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+	v = { istream_iterator<String>{in},{} };
+
+
+	//길이오름차순으로 정렬하라.
+
+	/*sort(v.begin(), v.end(), [](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});*/
+
+	cout << *(--v.end()) << endl;
+
+	/*for (auto& i : v) {
+		cout << i << endl;
+	}*/
+
+	관찰 = false;
+
+
+
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:25:20
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+	//관찰 = true;
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+	v = { istream_iterator<String>{in},{} };
+
+
+	//길이오름차순으로 정렬하라.
+
+	/*sort(v.begin(), v.end(), [](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});*/
+
+
+
+	for (auto& i : v) {
+		cout << i << endl;
+	}
+
+	관찰 = false;
+
+
+
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:26:11
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+	//관찰 = true;
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+	v = { istream_iterator<String>{in},{} };
+
+
+	//길이오름차순으로 정렬하라.
+
+	/*sort(v.begin(), v.end(), [](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});*/
+
+	v.sort([](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});
+
+
+	for (auto& i : v) {
+		cout << i << endl;
+	}
+
+	관찰 = false;
+
+
+
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:26:54
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+	v = { istream_iterator<String>{in},{} };
+
+
+	//길이오름차순으로 정렬하라.
+
+	/*sort(v.begin(), v.end(), [](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});*/
+	관찰 = true;
+	v.sort([](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});
+
+
+	for (auto& i : v) {
+		cout << i << endl;
+	}
+
+	관찰 = false;
+
+
+
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:27:47
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	vector<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+	v = { istream_iterator<String>{in},{} };
+
+
+	//길이오름차순으로 정렬하라.
+
+
+	관찰 = true;
+	//v.sort([](const String& s1, const String& s2) {
+	//	return s1.GetLen() < s2.GetLen();
+	//	});
+	sort(v.begin(), v.end(), [](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});
+
+	for (auto& i : v) {
+		cout << i << endl;
+	}
+
+	관찰 = false;
+
+
+
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:29:57
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+	v = { istream_iterator<String>{in},{} };
+
+
+	//길이오름차순으로 정렬하라.
+
+
+	관찰 = true;
+	v.sort([](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});
+
+	v.reverse();
+
+	for (auto& i : v) {
+		cout << i << endl;
+	}
+
+	관찰 = false;
+
+
+
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:30:32
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+	v = { istream_iterator<String>{in},{} };
+
+
+	//길이오름차순으로 정렬하라.
+
+
+	관찰 = true;
+	v.sort([](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});
+	
+	//원소의 순서를 거꾸로 저장
+	v.reverse();
+
+	for (auto& i : v) {
+		cout << i << endl;
+	}
+
+	관찰 = false;
+
+
+
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:33:47
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+	v = { istream_iterator<String>{in},{} };
+
+
+	//길이오름차순으로 정렬하라.
+
+
+	관찰 = true;
+	v.sort([](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});
+	
+	//원소의 순서를 거꾸로 저장
+	v.reverse();
+
+
+	//[문제] 컨테이너를 역순으로 출력해봐라.
+
+
+	for (auto i = v.end(); i != v.begin(); --i) {
+		cout << *i << endl;
+	}
+
+	관찰 = false;
+
+
+
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:34:36
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	/*v.reserve(500);*/
+
+	//[문제] 파일 " String.cpp 를 읽어 컨테이너에 저장하라.
+
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	
+	v = { istream_iterator<String>{in},{} };
+
+
+	//길이오름차순으로 정렬하라.
+
+
+	관찰 = true;
+	v.sort([](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});
+	
+	//원소의 순서를 거꾸로 저장
+	v.reverse();
+
+
+	//[문제] 컨테이너를 역순으로 출력해봐라.
+
+
+	for (auto i = v.rbegin(); i != v.rend(); ++i) {
+		cout << *i << endl;
+	}
+
+	관찰 = false;
+
+
+
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:45:05
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	v = { istream_iterator<String>{in},{} };
+	v.sort([](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});
+	
+	//[문제] 컨테이너에서 길이가 5인 원소만 화면에 출력하라.
+	find_if(v.begin(), v.end(), [](const String& s) {
+		return s.GetLen() == 5;
+		});
+
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:45:19
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	v = { istream_iterator<String>{in},{} };
+	v.sort([](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});
+	
+	//[문제] 컨테이너에서 길이가 5인 원소만 화면에 출력하라.
+	auto it =find_if(v.begin(), v.end(), [](const String& s) {
+		return s.GetLen() == 5;
+		});
+
+	cout << *it << endl;
+
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:47:06
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	v = { istream_iterator<String>{in},{} };
+	v.sort([](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});
+	
+	//[문제] 컨테이너에서 길이가 5인 원소만 화면에 출력하라.
+
+	//auto it =find_if(v.begin(), v.end(), [](const String& s) {
+	//	return s.GetLen() == 5;
+	//	});
+
+	//cout << *it << endl;
+
+
+	for (auto iter = v.begin(); iter != v.end(); ++iter) {
+		if (iter->GetLen() == 5) {
+			cout << *iter << endl;
+		}
+	}
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-23 화요일 오후 2:48:47
+=============================================== 
+
+//-------------------------------------------------------------------------------------------------------
+//                          2024. 1학기 STL 4월 23일 목요일  (8 주 1)                                   //
+//
+// 4월 25일 (8주 2일) - 중간시험
+// STL container - Sequence - deque
+// 덱-> 벡터와 리스트의 짬뽕
+// push_back , push_front => o(1) 알고리즘
+// 리스트의 단점: 메모리를 많이먹는다 ,  순회속도가 느리다.
+// 
+// 
+// //Sequence Container 
+// -array  와 vector 의 공통점: 랜덤엑세스 가 지원됨 
+// -deque 
+// -list
+// -forward_list  => read /write access 가 둘다가능함.
+// -vector o(1) -> push_back , deque o(1) -> pushback + pushfront   // insert delete 는 느리다.
+// -list 한테 편한동작 -> 대부분의 동작 (pushback + insert , delete )
+//-------------------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <vector>
+#include <list>
+#include <array>
+#include "Mystring.h"
+#include "save.h"
+#include <fstream>
+using namespace std;
+
+
+
+
+
+int main()
+{
+	list<String> v;
+	ifstream in{ "Mystring.cpp",ios::binary};
+
+	if (not in) {
+		return -1;
+	}
+
+	v = { istream_iterator<String>{in},{} };
+	v.sort([](const String& s1, const String& s2) {
+		return s1.GetLen() < s2.GetLen();
+		});
+	
+	//[문제] 컨테이너에서 길이가 5인 원소만 화면에 출력하라.
+
+	//auto it =find_if(v.begin(), v.end(), [](const String& s) {
+	//	return s.GetLen() == 5;
+	//	});
+
+	//cout << *it << endl;
+
+
+	for (auto iter = v.begin(); iter != v.end(); ++iter) {
+		if (iter->GetLen() == 5) {
+			cout << *iter << endl;
+		}
+
+		if (iter->GetLen() > 5) {
+			break;
+		}
+	}
+	save("STL.cpp");
+}
+
+
+
+
+=============================================== 
+STL.cpp 2024-04-30 화요일 오후 2:45:40
+=============================================== 
+
+//-----------------------------------------------------------------------------
+// 2024 STL 중간시험
+// 
+// Visual Studio 버전 17.9.0 이상 
+// Release / x64
+// 프로젝트 속성 - C++ 언어 표준 - 최신 C++ 초안의 기능(/std:c++latest)
+//-----------------------------------------------------------------------------
+// 답지 작성 방법
+// - 각 문제를 해결하는 데 필요한 코드만 적는다.
+// - 화면에 출력을 요구하는 문제는 출력된 내용을 답지에 적는다.
+// - 헤더 파일을 적을 필요는 없다.
+//-----------------------------------------------------------------------------
+
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include "Mystring.h"
+using namespace std;
+
+
+
+
+int main()
+{
+	list<String> cont{"1","22","333","4444","55555"};
+	list<String> cont2{ "1","22","a","bb","333","4444","55555" };
+
+	//cont.merge(cont2);
+
+	//for (auto i : cont) {
+	//	cout << i << endl;
+	//}
+
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-04-30 화요일 오후 3:07:21
+=============================================== 
+
+//-----------------------------------------------------------------------------
+// 2024 STL 중간시험
+// 
+// Visual Studio 버전 17.9.0 이상 
+// Release / x64
+// 프로젝트 속성 - C++ 언어 표준 - 최신 C++ 초안의 기능(/std:c++latest)
+//-----------------------------------------------------------------------------
+// 답지 작성 방법
+// - 각 문제를 해결하는 데 필요한 코드만 적는다.
+// - 화면에 출력을 요구하는 문제는 출력된 내용을 답지에 적는다.
+// - 헤더 파일을 적을 필요는 없다.
+//-----------------------------------------------------------------------------
+
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include "Mystring.h"
+using namespace std;
+
+
+
+
+
+int main()
+{
+	
+	//[문제] 파일 "STL.CPP" 의 단어를 읽어 정렬한후 출력하라.
+
+	String ptr;
+	ifstream in("STL.cpp");
+
+	list<String> cont{ istream_iterator<String> {in},{} };
+
+	cont.sort();
+
+	for (const auto& s : cont) {
+		cout << s << endl;
+	}
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-04-30 화요일 오후 3:09:56
+=============================================== 
+
+//-----------------------------------------------------------------------------
+// 2024 STL 중간시험
+// 
+// Visual Studio 버전 17.9.0 이상 
+// Release / x64
+// 프로젝트 속성 - C++ 언어 표준 - 최신 C++ 초안의 기능(/std:c++latest)
+//-----------------------------------------------------------------------------
+// 답지 작성 방법
+// - 각 문제를 해결하는 데 필요한 코드만 적는다.
+// - 화면에 출력을 요구하는 문제는 출력된 내용을 답지에 적는다.
+// - 헤더 파일을 적을 필요는 없다.
+//-----------------------------------------------------------------------------
+
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include "Mystring.h"
+using namespace std;
+
+// 중복된것을 제거 => 개수 26 개면 +1 
+// allof 함수
+int main()
+{
+	
+	//[문제] 파일 "STL.CPP" 의 단어를 읽어 정렬한후 출력하라.
+
+	String ptr;
+	ifstream in("STL.cpp");
+
+	list<String> cont{ istream_iterator<String> {in},{} };
+
+	cont.sort();
+	cont.unique();
+
+	for (const auto& s : cont) {
+		cout << s << endl;
+	}
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 1:28:59
+=============================================== 
+
+//-----------------------------------------------------------------------------
+// 2024 STL 중간시험
+// 
+// Visual Studio 버전 17.9.0 이상 
+// Release / x64
+// 프로젝트 속성 - C++ 언어 표준 - 최신 C++ 초안의 기능(/std:c++latest)
+//-----------------------------------------------------------------------------
+// 답지 작성 방법
+// - 각 문제를 해결하는 데 필요한 코드만 적는다.
+// - 화면에 출력을 요구하는 문제는 출력된 내용을 답지에 적는다.
+// - 헤더 파일을 적을 필요는 없다.
+//-----------------------------------------------------------------------------
+
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include "Mystring.h"
+using namespace std;
+
+// 중복된것을 제거 => 개수 26 개면 +1 
+// allof 함수
+int main()
+{
+	
+	//[문제] 파일 "STL.CPP" 의 단어를 읽어 정렬한후 출력하라.
+
+	String ptr;
+	ifstream in("STL.cpp");
+
+	list<String> cont{ istream_iterator<String> {in},{} };
+
+	cont.sort();
+	cont.unique();
+
+	for (const auto& s : cont) {
+		cout << s << endl;
+	}
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 1:29:53
+=============================================== 
+
+//-----------------------------------------------------------------------------
+// 2024 STL 중간시험
+// 
+// Visual Studio 버전 17.9.0 이상 
+// Release / x64
+// 프로젝트 속성 - C++ 언어 표준 - 최신 C++ 초안의 기능(/std:c++latest)
+//-----------------------------------------------------------------------------
+// 답지 작성 방법
+// - 각 문제를 해결하는 데 필요한 코드만 적는다.
+// - 화면에 출력을 요구하는 문제는 출력된 내용을 답지에 적는다.
+// - 헤더 파일을 적을 필요는 없다.
+//-----------------------------------------------------------------------------
+
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include "Mystring.h"
+using namespace std;
+
+// 중복된것을 제거 => 개수 26 개면 +1 
+// allof 함수,
+
+
+int main()
+{
+	
+	//[문제] 파일 "STL.CPP" 의 단어를 읽어 정렬한후 출력하라.
+
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 1:35:19
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2
+// 
+// list - 컨테이너는 자기가 잘 할 수있는 동작을 멤버함수로 제공한다.
+// 동일한 알고리즘 함수와 멤버함수가 있다면 멤버함수를 사용한다.
+// ex )
+// remove 는 전역알고리즘 함수 / list 의 멤버함수도있음.
+// sort 는 전역알고리즘 함수 / list 의 멤버 함수로 도 있음 .
+// 멤버함수를 사용한다.
+//-----------------------------------------------------------------------------
+// 답지 작성 방법
+// - 각 문제를 해결하는 데 필요한 코드만 적는다.
+// - 화면에 출력을 요구하는 문제는 출력된 내용을 답지에 적는다.
+// - 헤더 파일을 적을 필요는 없다.
+//-----------------------------------------------------------------------------
+
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include "Mystring.h"
+using namespace std;
+
+// 중복된것을 제거 => 개수 26 개면 +1 
+// allof 함수
+int main()
+{
+	
+	//[문제] 파일 "STL.CPP" 의 단어를 읽어 정렬한후 출력하라.
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 1:49:26
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2
+// 
+// list - 컨테이너는 자기가 잘 할 수있는 동작을 멤버함수로 제공한다.
+// 동일한 알고리즘 함수와 멤버함수가 있다면 멤버함수를 사용한다.
+// ex )
+// remove 는 전역알고리즘 함수 / list 의 멤버함수도있음.
+// sort 는 전역알고리즘 함수 / list 의 멤버 함수로 도 있음 .
+// 멤버함수를 사용한다.
+//-----------------------------------------------------------------------------
+// 답지 작성 방법
+// - 각 문제를 해결하는 데 필요한 코드만 적는다.
+// - 화면에 출력을 요구하는 문제는 출력된 내용을 답지에 적는다.
+// - 헤더 파일을 적을 필요는 없다.
+// 
+// -  forward list ( list 에 비해 더 공간을 효율적으로 사용함 왜? 단일연결리스트이므로  
+//    it is intended that forward_list have zero space or time overhead realative to a hand - written c - style singly linked list
+//	  Features that would conflict with that goal have benn omitted.
+//	  사용법이 쉽지않다 , 사용하는 사람이 거의없다 .
+//	  아무리 잘 코딩해도 이것보다 잘할수없다.
+//-----------------------------------------------------------------------------
+
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+using namespace std;
+
+
+int main()
+{
+	
+	forward_list<int> v;
+
+	
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 2:08:15
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2
+// 
+// list - 컨테이너는 자기가 잘 할 수있는 동작을 멤버함수로 제공한다.
+// 동일한 알고리즘 함수와 멤버함수가 있다면 멤버함수를 사용한다.
+// ex )
+// remove 는 전역알고리즘 함수 / list 의 멤버함수도있음.
+// sort 는 전역알고리즘 함수 / list 의 멤버 함수로 도 있음 .
+// 멤버함수를 사용한다.
+//-----------------------------------------------------------------------------
+//  Sequence -  [[array ,vector] -> contiguous _iterator ,deque] -> random_acces_iterator 
+//   [list ,forwardlist] 
+//   
+//    span  -> contriguous memory 를 가진 컨테이너를 대표하는 클래스
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+
+int main()
+{
+	
+	int a[10] = { 1,3,5,7,9,2,4,6,8,10 };
+
+	//연속적인 메모리에만 사용가능 , span 을 통해 STL 자료구조 마냥 사용가능 
+	span<int> s{ a };
+
+	sort(s.begin(), s.end());
+	
+
+	for (auto i = s.begin(); i < s.end(); ++i) {
+		cout << *i << endl;
+	}
+
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 2:29:28
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+
+int main()
+{
+	//출력반복자의 동작을 알아본다.
+
+	ostream_iterator<char> p{ cout };
+
+	cout <<"출력반복자의 크기"<< sizeof(p) << endl;
+	cout << "출력반복자의 타입" << typeid(p).name() << endl;
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 2:32:42
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+
+int main()
+{
+	//출력반복자의 동작을 알아본다.
+
+
+	ostream_iterator<char> p{ cout };
+	*p = 'a';
+	++p;
+	*p = 'b';
+	++p;
+	*p = 'c';
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 2:37:17
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+
+int main()
+{
+	//출력반복자의 동작을 알아본다.
+
+
+	ostream_iterator<char> p{ cout };
+	
+	p = 'a';
+	p = 'b';
+	p = 'c';
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 2:42:55
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+void f(auto it)
+{
+	cout << typeid(it).name() << endl;
+}
+
+int main()
+{
+
+	vector<int> v;
+
+	f(v.begin());
+
+	// 반복자는 6가지 종류로 구분된다.
+	// 함수 f 는 반복자를 인자로 받아 어떤 종류인지 출력한다.
+	// f 를 코딩하라.
+
+
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 2:44:34
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+void f(auto it)
+{
+	cout << typeid(it).name() << endl;
+}
+
+int main()
+{
+
+	vector<int> v;
+
+	f(v.begin());
+
+	ostream_iterator<char> p{ cout };
+
+	f(p);
+	// 반복자는 6가지 종류로 구분된다.
+	// 함수 f 는 반복자를 인자로 받아 어떤 종류인지 출력한다.
+	// f 를 코딩하라.
+
+
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 2:45:44
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+template<typename T>
+void f(T it)
+{
+	cout << typeid(it).name() << endl;
+}
+
+int main()
+{
+
+	vector<int> v;
+
+	f(v.begin());
+
+	ostream_iterator<char> p{ cout };
+
+	f(p);
+	// 반복자는 6가지 종류로 구분된다.
+	// 함수 f 는 반복자를 인자로 받아 어떤 종류인지 출력한다.
+	// f 를 코딩하라.
+
+
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 2:45:59
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+template<typename T>
+void f(const T it)
+{
+	cout << typeid(it).name() << endl;
+}
+
+int main()
+{
+
+	vector<int> v;
+
+	f(v.begin());
+
+	ostream_iterator<char> p{ cout };
+
+	f(p);
+	// 반복자는 6가지 종류로 구분된다.
+	// 함수 f 는 반복자를 인자로 받아 어떤 종류인지 출력한다.
+	// f 를 코딩하라.
+
+
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 2:56:45
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+
+template<typename T>
+void f(const T it)
+{
+	cout << typeid(T::iterator_category).name() << endl;
+}
+
+int main()
+{
+	{
+		vector<String> v;
+		f(v.begin());
+	}
+	{
+		ostream_iterator<char> v{ cout };
+		f(v);
+	}
+	{
+		istream_iterator<char>  v{ cin };
+		f(v);
+	}
+
+	{
+		list<String>  v;
+		f(v.begin());
+	}
+
+	{
+		deque<String>  v;
+		f(v.begin());
+	}
+
+	{
+		forward_list<String>  v;
+		f(v.begin());
+	}
+
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 3:08:01
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+
+template<typename T>
+void f(const T it)
+{
+	cout << typeid(T::iterator_category).name() << endl;
+}
+
+
+int main()
+{
+	
+	//우리가 만든클래스 String 은 contingus 메모리를 관리한다.
+	// 다음 코드가 실행되게 하라.
+	
+	String s{ "0123456" };
+	cout << s << endl;
+
+	//for (char a: s) {
+	//	cout << a << " ";
+	//}
+	cout << endl;
+
+	
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-02 목요일 오후 3:41:22
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+
+template<typename T>
+void f(const T it)
+{
+	cout << typeid(T::iterator_category).name() << endl;
+}
+
+
+int main()
+{
+	
+	//우리가 만든클래스 String 은 contingus 메모리를 관리한다.
+	// 다음 코드가 실행되게 하라.
+
+	String s("12345");
+
+	cout << s.begin() << endl;
+
+	//String s{ "0123456" };
+	//cout << s << endl;
+
+	//for (char a: s) {
+	//	cout << a << " ";
+	//}
+	//cout << endl;
+
+	
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-07 화요일 오후 1:23:16
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 2일 목 9주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+
+template<typename T>
+void f(const T it)
+{
+	cout << typeid(T::iterator_category).name() << endl;
+}
+
+
+int main()
+{
+	
+	//우리가 만든클래스 String 은 contingus 메모리를 관리한다.
+	// 다음 코드가 실행되게 하라.
+
+	const char* ptr = "12341243";
+
+
+	String s{ "0123456" };
+	cout << s << endl;
+
+	for (char a: s) {
+		cout << a << " ";
+	}
+	cout << endl;
+
+	
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-07 화요일 오후 1:44:41
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 7일 목 10주 1일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+
+template<typename T>
+void f(const T it)
+{
+	// SFINE 
+	cout << typeid(T::iterator_category).name() << endl;
+}
+
+
+int main()
+{
+	
+
+
+	int* ptr; //random_excess_iteartor 한종류 이다
+	/*f(ptr);*/
+
+	
+	
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-07 화요일 오후 2:02:34
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 7일 목 10주 1일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+// T[N] , vector[N] => SPAN
+// CHAR* p ={"   "} , char name[40] , string s{"name"} => string_view
+
+
+template<typename T>
+void f(const T it)
+{
+	// SFINE 
+	/*cout << typeid(T::iterator_category).name() << endl;*/
+
+	//반복자의 종류를 판단하는 표준 문장
+	cout << typeid(iterator_traits<T>::iterator_category).name() << endl;
+	cout << typeid(T::iterator_concept).name() << endl;
+};
+
+
+
+int main()
+{
+
+	// c++ 17 이후에 벡터의 반복자가 contigous 하다 라는 대답을 원한다면 ?
+
+	f(vector<int>::iterator{});
+
+
+
+	
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-07 화요일 오후 2:24:17
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 7일 목 10주 1일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+
+
+
+int main()
+{
+
+	String s{ "1357924680" };
+
+	sort(s.begin(), s.end());
+
+	for (char c : s) {             // range -based for loop == for each for
+		cout << c << " ";
+	}
+	cout << endl;
+
+	
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-07 화요일 오후 2:29:40
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 7일 목 10주 1일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+
+
+
+int main()
+{
+
+	String s{ "1357924680" };
+
+	for (auto i = s.rbegin(); i != s.rend(); --i)
+	{
+		cout << *i << " ";
+	}
+	cout << endl;
+
+	
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-07 화요일 오후 2:29:46
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 7일 목 10주 1일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+
+
+
+int main()
+{
+
+	String s{ "1357924680" };
+
+	for (auto i = s.rbegin(); i != s.rend(); --i)
+	{
+		cout << *i << " ";
+	}
+	cout << endl;
+
+	
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-07 화요일 오후 2:29:48
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 7일 목 10주 1일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+
+
+
+int main()
+{
+
+	String s{ "1357924680" };
+
+	for (auto i = s.rbegin(); i != s.rend(); --i)
+	{
+		cout << *i << " ";
+	}
+	cout << endl;
+
+	
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-07 화요일 오후 2:33:40
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 7일 목 10주 1일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+using namespace std;
+
+
+
+
+int main()
+{
+
+	String s{ "1357924680" };
+
+	span<char> ss(s.begin(), s.end());
+
+	for (auto i = ss.rbegin(); i != ss.rend(); ++i)
+	{
+		cout << *i << " ";
+	}
+	cout << endl;
+
+	
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-07 화요일 오후 2:56:57
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 7일 목 10주 1일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+
+
+
+int main()
+{
+
+	String s{ "13579246890" };
+
+	for (auto i = s.rbegin(); i != s.rend(); ++i)
+	{
+		cout << i.operator*() << " ";
+	}
+	cout << endl;
+
+	
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-05-07 화요일 오후 3:09:55
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 7일 목 10주 1일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+
+
+
+int main()
+{
+
+	string s{ "13579246890" };
+
+	//s 의 반복자 - random_acess_iterator_tag 가 되는게 좋다
+	// 	
+	save("STL.cpp");
+
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-05-09 목요일 오후 1:47:21
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+// 6월 6일 강의 예정
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+//string => contigous 메모리이며 sequence container 이다.
+// string 이 STL containter 가되려면 , iterator 를 제공해야함.
+// string::value_type 
+template <typename T>
+void f(T iter)
+{
+	cout << typeid(iterator_traits<T>::iterator_category).name() << endl;
+}
+
+//cout << typeid(iterator_traits<string>::iterator_category).name() << endl;
+int main()
+{
+
+	string s; // 반복자[클래스]를 제공해야함. 
+	// 반복자는 클래스로 코딩해야하만 한다. why? 반복자의 타입을 알수있게하기위해서
+	// 역방향반복자는 사기동작을 하므로 반드시 클래스로 만들어야한다.
+
+	f(s.begin());
+
+	/*cout << s << endl;*/
+	save("STL.cpp");
+
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-05-09 목요일 오후 1:50:20
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+// 6월 6일 강의 예정
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+//string => contigous 메모리이며 sequence container 이다.
+// string 이 STL containter 가되려면 , iterator 를 제공해야함.
+// string::value_type 
+template <typename T>
+void f(T iter)
+{
+	cout << typeid(iterator_traits<T>::iterator_category).name() << endl;
+
+	cout << typeid(T::iterator_concept).name() << endl;
+}
+
+
+int main()
+{
+
+	string s; // 반복자[클래스]를 제공해야함. 
+	// 반복자는 클래스로 코딩해야하만 한다. why? 반복자의 타입을 알수있게하기위해서
+	// 역방향반복자는 사기동작을 하므로 반드시 클래스로 만들어야한다.
+	
+	f(s.begin());
+	
+	save("STL.cpp");
+
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-05-09 목요일 오후 3:27:13
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+// 6월 6일 강의 예정
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+//
+//template<class 반복자, class 호출가능타입>
+//반복자 my_find(반복자 b, 반복자 e, 호출가능타입 f)
+//{
+//	return 반복자
+//}
+
+int main()
+{
+	//[문제] 연산자 오버로딩  
+	//다음문장이 문제없이 실행될수있도록 필요한 모든 코딩을 하라.
+
+
+	String s{ "1357924680" };
+
+	sort(s.begin(),s.end());
+
+	cout << s << endl;
+
+	// [문제 ] 다음 코드가 문제없이 실행되도록 하자 .
+	//이코드는 [begin end] 에서 주어진 조건에 맞는 원소의 위치를 리턴한다. 
+
+	//auto p = my_find(s.begin(), s.end(), [](char c) {
+	//	if (stoi(c) % 2 == 0) {
+	//		return true;
+	//	}
+	//	return false;
+	//	});
+
+	//cout << "처음 찾은 짝수의 위치는 " << endl;
+	//cout << "처음 찾은 짝수의 값은" << endl;
+
+	save("STL.cpp");
+
+}
+
+=============================================== 
+STL.cpp 2024-05-09 목요일 오후 3:28:19
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+// 
+// 6월 6일 강의 예정
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+//
+//template<class 반복자, class 호출가능타입>
+//반복자 my_find(반복자 b, 반복자 e, 호출가능타입 f)
+//{
+//	return 반복자
+//}
+class test
+{
+
+public:
+	int num=10;
+
+	int getNum() const {
+		return num;
+	}
+};
+int main()
+{
+
+	test a;
+
+	a.getNum();
+
+
+	// [문제 ] 다음 코드가 문제없이 실행되도록 하자 .
+	//이코드는 [begin end] 에서 주어진 조건에 맞는 원소의 위치를 리턴한다. 
+
+	//auto p = my_find(s.begin(), s.end(), [](char c) {
+	//	if (stoi(c) % 2 == 0) {
+	//		return true;
+	//	}
+	//	return false;
+	//	});
+
+	//cout << "처음 찾은 짝수의 위치는 " << endl;
+	//cout << "처음 찾은 짝수의 값은" << endl;
+
+	save("STL.cpp");
+
+}
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:18:35
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+template<typename 반복자,typename 값> 
+반복자 my_find(반복자 b, 반복자 e, 값 val)
+{
+	while(b != e) 
+	{
+		if (*b == val) 
+			return b;
+		
+		++b;
+	}
+
+	return e;
+}
+
+//callable type 중에서 boolean 을 리턴하는 것을 predicate 이라고 부른다.
+template<typename 반복자, typename 조건문>
+반복자 my_find_if(반복자 b, 반복자 e, 조건문 f)
+{
+	while (b != e)
+	{
+		if( f( *b ))
+			break;
+
+		++b;
+	}
+	return b;
+}
+
+int main()
+{
+
+
+
+	String s{ "1357924680 stl algorithm" };
+
+	//[문제] s 에 사용자가 찾는 조건(짝수) 에 맞는 문자가 있는지 알려주자.
+	// 그 찾는 문자가 있다면 몇번째 문자인지 알려주자.
+	// 없다면 없다고 출력하자.
+
+
+	cout << "찾을 문자는?";
+	char c;
+	cin >> c;
+
+
+	auto it = my_find_if(s.begin(), s.end(), [](char c) {
+		if (isdigit(c)) 
+		{
+			if ((c & 1) == 0)//짝수인지 판단하는 코드 
+			{
+				return true;
+			}
+		}
+		return false;
+		});
+
+	if (it != s.end()) {
+		cout << *it  << "는 s의" <<
+			distance(s.begin(), it) + 1
+			<< "번쨰 문자입니다." << endl;
+	}
+	else
+	{
+		cout << "조건에 맞는 문자 는 존재하지 않습니다." << endl;
+	}
+
+
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:18:40
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+template<typename 반복자,typename 값> 
+반복자 my_find(반복자 b, 반복자 e, 값 val)
+{
+	while(b != e) 
+	{
+		if (*b == val) 
+			return b;
+		
+		++b;
+	}
+
+	return e;
+}
+
+//callable type 중에서 boolean 을 리턴하는 것을 predicate 이라고 부른다.
+template<typename 반복자, typename 조건문>
+반복자 my_find_if(반복자 b, 반복자 e, 조건문 f)
+{
+	while (b != e)
+	{
+		if( f( *b ))
+			break;
+
+		++b;
+	}
+	return b;
+}
+
+int main()
+{
+
+
+
+	String s{ "1357924680 stl algorithm" };
+
+	//[문제] s 에 사용자가 찾는 조건(짝수) 에 맞는 문자가 있는지 알려주자.
+	// 그 찾는 문자가 있다면 몇번째 문자인지 알려주자.
+	// 없다면 없다고 출력하자.
+
+
+	cout << "찾을 문자는?";
+	char c;
+	cin >> c;
+
+
+	auto it = my_find_if(s.begin(), s.end(), [](char c) {
+		if (isdigit(c)) 
+		{
+			if ((c & 1) == 0)//짝수인지 판단하는 코드 
+			{
+				return true;
+			}
+		}
+		return false;
+		});
+
+	if (it != s.end()) {
+		cout << *it  << "는 s의" <<
+			distance(s.begin(), it) + 1
+			<< "번쨰 문자입니다." << endl;
+	}
+	else
+	{
+		cout << "조건에 맞는 문자 는 존재하지 않습니다." << endl;
+	}
+
+
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:18:50
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+template<typename 반복자,typename 값> 
+반복자 my_find(반복자 b, 반복자 e, 값 val)
+{
+	while(b != e) 
+	{
+		if (*b == val) 
+			return b;
+		
+		++b;
+	}
+
+	return e;
+}
+
+//callable type 중에서 boolean 을 리턴하는 것을 predicate 이라고 부른다.
+template<typename 반복자, typename 조건문>
+반복자 my_find_if(반복자 b, 반복자 e, 조건문 f)
+{
+	while (b != e)
+	{
+		if( f( *b ))
+			break;
+
+		++b;
+	}
+	return b;
+}
+
+int main()
+{
+
+
+
+	String s{ "1357924680 stl algorithm" };
+
+	//[문제] s 에 사용자가 찾는 조건(짝수) 에 맞는 문자가 있는지 알려주자.
+	// 그 찾는 문자가 있다면 몇번째 문자인지 알려주자.
+	// 없다면 없다고 출력하자.
+
+
+	auto it = my_find_if(s.begin(), s.end(), [](char c) {
+		if (isdigit(c)) 
+		{
+			if ((c & 1) == 0)//짝수인지 판단하는 코드 
+			{
+				return true;
+			}
+		}
+		return false;
+		});
+
+	if (it != s.end()) {
+		cout << *it  << "는 s의" <<
+			distance(s.begin(), it) + 1
+			<< "번쨰 문자입니다." << endl;
+	}
+	else
+	{
+		cout << "조건에 맞는 문자 는 존재하지 않습니다." << endl;
+	}
+
+
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:19:21
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+template<typename 반복자,typename 값> 
+반복자 my_find(반복자 b, 반복자 e, 값 val)
+{
+	while(b != e) 
+	{
+		if (*b == val) 
+			return b;
+		
+		++b;
+	}
+
+	return e;
+}
+
+//callable type 중에서 boolean 을 리턴하는 것을 predicate 이라고 부른다.
+template<typename 반복자, typename 조건문>
+반복자 my_find_if(반복자 b, 반복자 e, 조건문 f)
+{
+	while (b != e)
+	{
+		if( f( *b ))
+			break;
+
+		++b;
+	}
+	return b;
+}
+
+int main()
+{
+
+
+
+	String s{ "1357924680 stl algorithm" };
+
+	//[문제] s 에 사용자가 찾는 조건(짝수) 에 맞는 문자가 있는지 알려주자.
+	// 그 찾는 문자가 있다면 몇번째 문자인지 알려주자.
+	// 없다면 없다고 출력하자.
+
+
+	auto it = my_find_if(s.begin(), s.end(), [](char c) {
+		if (isdigit(c)) 
+		{
+			if ((c & 1) == 0)//짝수인지 판단하는 코드 
+			{
+				return true;
+			}
+		}
+		return false;
+		});
+
+	if (it != s.end()) {
+		cout << *it  << "는 s의" <<
+			distance(s.begin(), it) + 1
+			<< "번쨰 문자입니다." << endl;
+	}
+	else
+	{
+		cout << "조건에 맞는 문자 는 존재하지 않습니다." << endl;
+	}
+
+
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:26:07
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+template<typename 반복자,typename 값> 
+반복자 my_find(반복자 b, 반복자 e, 값 val)
+{
+	while(b != e) 
+	{
+		if (*b == val) 
+			return b;
+		
+		++b;
+	}
+
+	return e;
+}
+
+//callable type 중에서 boolean 을 리턴하는 것을 predicate 이라고 부른다.
+template<typename 반복자, typename 조건문>
+반복자 my_find_if(반복자 b, 반복자 e, 조건문 f)
+{
+	while (b != e)
+	{
+		if( f( *b ))
+			break;
+
+		++b;
+	}
+	return b;
+}
+
+int main()
+{
+
+
+
+	String s{ "1357924680 stl algorithm" };
+
+	//[문제] s 에 사용자가 찾는 조건(짝수) 에 맞는 문자가 있는지 알려주자.
+	// 모두 출력하라.
+	// 그 찾는 문자가 있다면 몇번째 문자인지 알려주자.
+	// 없다면 없다고 출력하자.
+
+
+	auto it = my_find_if(s.begin(), s.end(), [](char c) {
+		if (isdigit(c)) 
+		{
+			if ((c & 1) == 0)//짝수인지 판단하는 코드 
+			{
+				return true;
+			}
+		}
+		return false;
+		});
+
+
+	if (it != s.end()) {
+		cout << *it << "는 s의" <<
+			distance(s.begin(), it) + 1
+			<< "번쨰 문자입니다." << endl;
+	}
+	else
+	{
+		cout << "조건에 맞는 문자 는 존재하지 않습니다." << endl;
+	}
+
+
+	
+
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:29:19
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+template<typename 반복자,typename 값> 
+반복자 my_find(반복자 b, 반복자 e, 값 val)
+{
+	while(b != e) 
+	{
+		if (*b == val) 
+			return b;
+		
+		++b;
+	}
+
+	return e;
+}
+
+//callable type 중에서 boolean 을 리턴하는 것을 predicate 이라고 부른다.
+template<typename 반복자, typename 조건문>
+반복자 my_find_if(반복자 b, 반복자 e, 조건문 f)
+{
+	while (b != e)
+	{
+		if( f( *b ))
+			break;
+
+		++b;
+	}
+	return b;
+}
+
+int main()
+{
+
+
+
+	String s{ "1357924680 stl algorithm" };
+
+	//[문제] s 에 사용자가 찾는 조건(짝수) 에 맞는 문자가 있는지 알려주자.
+	// 모두 출력하라.
+	// 그 찾는 문자가 있다면 몇번째 문자인지 알려주자.
+	// 없다면 없다고 출력하자.
+
+	auto p = s.begin();
+
+	while (p != s.end())
+	{
+		auto it = my_find_if(p, s.end(), [](char c) {
+			if (isdigit(c))
+			{
+				if ((c & 1) == 0)//짝수인지 판단하는 코드 
+				{
+					return true;
+				}
+			}
+			return false;
+			});
+
+		if (it != s.end()) {
+			cout << *it << "는 s의" <<
+				distance(s.begin(), it) + 1
+				<< "번쨰 문자입니다." << endl;
+		}
+		else
+		{
+			cout << "조건에 맞는 문자 는 존재하지 않습니다." << endl;
+		}
+
+		++p;
+	}
+
+	
+
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:30:17
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+template<typename 반복자,typename 값> 
+반복자 my_find(반복자 b, 반복자 e, 값 val)
+{
+	while(b != e) 
+	{
+		if (*b == val) 
+			return b;
+		
+		++b;
+	}
+
+	return e;
+}
+
+//callable type 중에서 boolean 을 리턴하는 것을 predicate 이라고 부른다.
+template<typename 반복자, typename 조건문>
+반복자 my_find_if(반복자 b, 반복자 e, 조건문 f)
+{
+	while (b != e)
+	{
+		if( f( *b ))
+			break;
+
+		++b;
+	}
+	return b;
+}
+
+int main()
+{
+
+
+
+	String s{ "1357924680 stl algorithm" };
+
+	//[문제] s 에 사용자가 찾는 조건(짝수) 에 맞는 문자가 있는지 알려주자.
+	// 모두 출력하라.
+	// 그 찾는 문자가 있다면 몇번째 문자인지 알려주자.
+	// 없다면 없다고 출력하자.
+
+	auto beg = s.begin();
+
+	while (beg != s.end())
+	{
+		auto it = my_find_if(beg, s.end(), [](char c) {
+			if (isdigit(c))
+			{
+				if ((c & 1) == 0)//짝수인지 판단하는 코드 
+				{
+					return true;
+				}
+			}
+			return false;
+			});
+
+		if (it != s.end()) {
+			cout << *it << "는 s의" <<
+				distance(s.begin(), it) + 1
+				<< "번쨰 문자입니다." << endl;
+		}
+		else
+		{
+			cout << "조건에 맞는 문자 는 존재하지 않습니다." << endl;
+			break;
+		}
+
+		beg = it + 1;
+	}
+
+	
+
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:30:41
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+template<typename 반복자,typename 값> 
+반복자 my_find(반복자 b, 반복자 e, 값 val)
+{
+	while(b != e) 
+	{
+		if (*b == val) 
+			return b;
+		
+		++b;
+	}
+
+	return e;
+}
+
+//callable type 중에서 boolean 을 리턴하는 것을 predicate 이라고 부른다.
+template<typename 반복자, typename 조건문>
+반복자 my_find_if(반복자 b, 반복자 e, 조건문 f)
+{
+	while (b != e)
+	{
+		if( f( *b ))
+			break;
+
+		++b;
+	}
+	return b;
+}
+
+int main()
+{
+
+
+
+	String s{ "1357924680 stl algorithm" };
+
+	//[문제] s 에 사용자가 찾는 조건(짝수) 에 맞는 문자가 있는지 알려주자.
+	// 모두 출력하라.
+	// 그 찾는 문자가 있다면 몇번째 문자인지 알려주자.
+	// 없다면 없다고 출력하자.
+
+	auto beg = s.begin();
+
+	while (true)
+	{
+		auto it = my_find_if(beg, s.end(), [](char c) {
+			if (isdigit(c))
+			{
+				if ((c & 1) == 0)//짝수인지 판단하는 코드 
+				{
+					return true;
+				}
+			}
+			return false;
+			});
+
+		if (it != s.end()) {
+			cout << *it << "는 s의" <<
+				distance(s.begin(), it) + 1
+				<< "번쨰 문자입니다." << endl;
+		}
+		else
+		{
+			cout << "조건에 맞는 문자 는 존재하지 않습니다." << endl;
+			break;
+		}
+
+		beg = it + 1;
+	}
+
+	
+
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:31:11
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+template<typename 반복자,typename 값> 
+반복자 my_find(반복자 b, 반복자 e, 값 val)
+{
+	while(b != e) 
+	{
+		if (*b == val) 
+			return b;
+		
+		++b;
+	}
+
+	return e;
+}
+
+//callable type 중에서 boolean 을 리턴하는 것을 predicate 이라고 부른다.
+template<typename 반복자, typename 조건문>
+반복자 my_find_if(반복자 b, 반복자 e, 조건문 f)
+{
+	while (b != e)
+	{
+		if( f( *b ))
+			break;
+
+		++b;
+	}
+	return b;
+}
+
+int main()
+{
+
+
+
+	String s{ "stl algorithm 1357924680" };
+
+	//[문제] s 에 사용자가 찾는 조건(짝수) 에 맞는 문자가 있는지 알려주자.
+	// 모두 출력하라.
+	// 그 찾는 문자가 있다면 몇번째 문자인지 알려주자.
+	// 없다면 없다고 출력하자.
+
+	auto beg = s.begin();
+
+	while (true)
+	{
+		auto it = my_find_if(beg, s.end(), [](char c) {
+			if (isdigit(c))
+			{
+				if ((c & 1) == 0)//짝수인지 판단하는 코드 
+				{
+					return true;
+				}
+			}
+			return false;
+			});
+
+		if (it != s.end()) {
+			cout << *it << "는 s의" <<
+				distance(s.begin(), it) + 1
+				<< "번쨰 문자입니다." << endl;
+		}
+
+		else
+		{
+			cout << "조건에 맞는 문자 는 존재하지 않습니다." << endl;
+			break;
+		}
+
+		beg = it + 1;
+	}
+
+	
+
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:34:41
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+using namespace std;
+
+
+
+int main()
+{
+
+
+
+	String s{ "STL algorithm  2024년 5월 14일"};
+
+	copy(s.begin(), s.end(), ostream_iterator<char>{cout});
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:42:52
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+//using namespace std;
+//_EXPORT_STD template <class _InIt, class _OutIt>
+//_CONSTEXPR20 _OutIt copy(_InIt _First, _InIt _Last, _OutIt _Dest) { // copy [_First, _Last) to [_Dest, ...)
+//    _Adl_verify_range(_First, _Last);
+//    const auto _UFirst = _Get_unwrapped(_First);
+//    const auto _ULast = _Get_unwrapped(_Last);
+//    const auto _UDest = _Get_unwrapped_n(_Dest, _Idl_distance<_InIt>(_UFirst, _ULast));
+//    _Seek_wrapped(_Dest, _STD _Copy_unchecked(_UFirst, _ULast, _UDest));
+//    return _Dest;
+//}
+
+template<typename initer,typename outlter> 
+void my_copy(initer b, initer e, outlter d) 
+{
+	while (b != e) {
+		*d = *b;
+		++b;
+	}
+}
+
+
+int main()
+{
+
+
+
+	String s{ "STL algorithm  2024년 5월 14일"};
+
+	my_copy(s.begin(), s.end(), ostream_iterator<char>{cout});
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:43:30
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+//using namespace std;
+//_EXPORT_STD template <class _InIt, class _OutIt>
+//_CONSTEXPR20 _OutIt copy(_InIt _First, _InIt _Last, _OutIt _Dest) { // copy [_First, _Last) to [_Dest, ...)
+//    _Adl_verify_range(_First, _Last);
+//    const auto _UFirst = _Get_unwrapped(_First);
+//    const auto _ULast = _Get_unwrapped(_Last);
+//    const auto _UDest = _Get_unwrapped_n(_Dest, _Idl_distance<_InIt>(_UFirst, _ULast));
+//    _Seek_wrapped(_Dest, _STD _Copy_unchecked(_UFirst, _ULast, _UDest));
+//    return _Dest;
+//}
+
+template<typename initer,typename outlter> 
+void my_copy(initer b, initer e, outlter d) 
+{
+	while (b != e) {
+		*d = *b;
+		++b;
+	}
+}
+
+
+int main()
+{
+
+
+
+	String s{ "STL algorithm  2024년 5월 14일"};
+
+	my_copy(s.begin(), s.end(), ostream_iterator<char>{cout});
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:49:13
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+
+template<typename initer,typename outlter> 
+void my_copy(initer b, initer e, outlter d) 
+{
+	while (b != e) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+
+int main()
+{
+
+
+
+	String s{ "STL algorithm  2024년 5월 14일"};
+	vector<char> v;
+
+	v.resize(s.GetLen());
+
+	my_copy(s.begin(), s.end(), v.begin());
+
+
+	for (auto c : v) {
+		cout << c;
+	}
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:50:38
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+
+template<typename initer,typename outlter> 
+void my_copy(initer b, initer e, outlter d) 
+{
+	while (b != e) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+
+int main()
+{
+
+
+
+	String s{ "STL algorithm  2024년 5월 14일"};
+	vector<char> v;
+
+	v.reserve(s.GetLen());
+
+	my_copy(s.begin(), s.end(), v.begin());
+
+
+	for (auto c : v) {
+		cout << c;
+	}
+
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-14 화요일 오후 2:57:19
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 9일 목 10주 2일
+// 
+// 반복자 에 대해 공부해보자 . 
+// 
+// 반복자는 포인터를 일반화한것 WHY? : c++ 에서 서로다른자료형 에 일관된 방식으로 코딩하려고
+//  알고리즘 함수 - 반복자를 인자로 받는다.
+//  Design pattern -> 문제를 우회하여 해결함
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+
+template<typename initer,typename outlter> 
+void my_copy(initer b, initer e, outlter d) 
+{
+	while (b != e) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+
+int main()
+{
+	String s{ "STL algorithm  2024년 5월 14일"};
+	vector<char> v;
+	//v.resize(s.GetLen());
+
+	//adapater
+
+	my_copy(s.begin(), s.end(),  back_inserter(v));
+
+	for (auto c : v) {
+		cout << c;
+	}
+
+	cout << endl;
+
+	for (int i = 0; i < s.GetLen(); ++i)
+	{
+		cout << v[i];
+	}
+
+	cout << endl;
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-16 목요일 오후 1:25:13
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 14일 목 11주 1일
+// 
+// STL containers  => sequence => sort 되있다면 이진탐색때문에 ( O(logN)
+// Associate(키와밸류연관) ( 찾기실력굳 (O(logN)))  
+// unordered Associative (찾기실력베리굳(unordered Assocaite(O(1),공간을 희생함)
+// 
+// 
+// 6월 6일 강의 예정
+// 6월 13일 목요일 -> (15주 2일 ) ==> 기말시험
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+
+
+template<typename initer,typename outlter> 
+void my_copy(initer b, initer e, outlter d) 
+{
+	while (b != e) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+
+int main()
+{
+	String s{ "STL algorithm  2024년 5월 14일"};
+	vector<char> v;
+
+
+	my_copy(s.begin(), s.end(), back_inserter(v));
+
+	for (auto c : v) {
+		cout << c;
+	}
+
+	cout << endl;
+
+	for (int i = 0; i < s.GetLen(); ++i)
+	{
+		cout << v[i];
+	}
+
+	cout << endl;
+
+	save("STL.cpp");
+
+};
+
+=============================================== 
+STL.cpp 2024-05-16 목요일 오후 1:37:31
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 16일 목 11주 2일
+// 
+// Associative Container - set / map
+
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+#include <set>
+
+
+set<int> s;
+
+
+int main()
+{
+	//[문제] 사용자가 입력한 모든 단어를 오름차순으로 정렬한후 출력하라.
+	
+	관찰 = true;
+
+	set<String> s{ istream_iterator<String>{cin},{} };
+
+	관찰 = false;
+
+	for (auto& i : s) {
+		cout << i << endl;
+	}
+	
+
+
+
+	save("STL.cpp");
+};
+
+=============================================== 
+STL.cpp 2024-05-16 목요일 오후 1:37:43
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 16일 목 11주 2일
+// 
+// Associative Container - set / map
+
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+#include <set>
+
+
+set<int> s;
+
+
+int main()
+{
+	//[문제] 사용자가 입력한 모든 단어를 오름차순으로 정렬한후 출력하라.
+	
+	관찰 = true;
+
+	set<String> s{ istream_iterator<String>{cin},{} };
+
+	관찰 = false;
+
+	for (auto& i : s) {
+		cout << i << endl;
+	}
+	
+
+
+
+	save("STL.cpp");
+};
+
+=============================================== 
+STL.cpp 2024-05-16 목요일 오후 2:13:25
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 16일 목 11주 2일
+// 
+// Associative Container - set / map
+// -equivalence(동등성,<) /equality(상등성,==) 
+// -default 정렬기준은 operator< (less) 이다. 다른 정렬기준을 주고싶다면 
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+#include <set>
+
+
+class 길이오름차순
+{
+public:
+	bool operator()(const String& a, const String& b) const
+	{
+		return a.GetLen() < b.GetLen();
+	};
+
+};
+
+
+
+set<int> s;
+
+
+int main()
+{
+	
+	ifstream in{ "STL.cpp"};
+
+
+
+	//set<String, bool(*)(const String&, const String&)> s{istream_iterator<String>{in},{},길이오름차순};
+	multiset<String, 길이오름차순> s{ istream_iterator<String>{in},{} };
+
+	for (auto& i : s) {
+		cout << i << endl;
+	}
+	
+
+
+
+	save("STL.cpp");
+};
+
+=============================================== 
+STL.cpp 2024-05-16 목요일 오후 2:28:04
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 16일 목 11주 2일
+// 
+// Associative Container - set / map
+// -equivalence(동등성,<) /equality(상등성,==) 
+// -default 정렬기준은 operator< (less) 이다. 다른 정렬기준을 주고싶다면  클래스로 스펠라제이션
+// 
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+#include <set>
+
+
+class 길이오름차순
+{
+public:
+	bool operator()(const String& a, const String& b) const
+	{
+		return a.GetLen() < b.GetLen();
+	};
+
+};
+
+template<>
+struct less<String>
+{
+	//영단어 가먼저나오고 , 한글이 이후나옴
+public:
+	bool operator()(const String& a, const String& b) const {
+		// a,b => 영/영 , 영/한 , 한/영 , 한/한  ,
+		// 즉 첫글자를 기준으로 바꾼다
+		if (!isalpha(*(a.begin())) && isalpha(*(b.begin())))
+			return false;
+		return true;
+ 	}
+};
+
+
+
+set<int> s;
+
+
+int main()
+{
+	
+	ifstream in{ "STL.cpp"};
+
+
+
+	//set<String, bool(*)(const String&, const String&)> s{istream_iterator<String>{in},{},길이오름차순};
+	multiset<String> s{ istream_iterator<String>{in},{} };
+
+	for (auto& i : s) {
+		cout << i << endl;
+	}
+	
+
+	save("STL.cpp");
+};
+
+=============================================== 
+STL.cpp 2024-05-16 목요일 오후 2:48:01
+=============================================== 
+
+//-----------------------------------------------------------------------------
+//  
+// 5월 16일 목 11주 2일
+// 
+// Associative Container - set / map
+// -equivalence(동등성,<) /equality(상등성,==) 
+// -default 정렬기준은 operator< (less) 이다. 다른 정렬기준을 주고싶다면  클래스로 스펠라제이션
+// 
+// 
+//----------------------------------------------------------------------------
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <print>
+#include <random>
+#include <string>
+#include <vector>
+#include <forward_list>
+#include "Mystring.h"
+#include <span>
+#include "Mystring.h"
+#include <set>
+
+
+class 길이오름차순
+{
+public:
+	bool operator()(const String& a, const String& b) const
+	{
+		return a.GetLen() < b.GetLen();
+	};
+
+};
+
+template<>
+struct less<String>
+{
+	//영단어 가먼저나오고 , 한글이 이후나옴
+public:
+	bool operator()(const String& a, const String& b) const {
+		// a,b => 영/영 , 영/한 , 한/영 , 한/한  ,
+		// 즉 첫글자를 기준으로 바꾼다
+		if (!isalpha(*(a.begin())) && isalpha(*(b.begin())))
+			return false;
+		return true;
+ 	}
+};
+
+
+
+set<int> s;
+
+
+int main()
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -111;
+	}
+
+	set<String> s{ istream_iterator <String>{in},{} };
+
+	cout << "읽은단어수: "<< s.size() << endl;
+
+	for (const String& i : s) {
+		cout << i << " ";
+	}
+	cout << endl;
+
+	save("STL.cpp");
+};
+
+=============================================== 
+STL.cpp 2024-05-23 목요일 오후 1:32:26
+=============================================== 
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+
+#include "Mystring.h"
+
+using namespace std;
+
+//
+// map<Key, Value> - dictionary
+
+int main()
+{
+
+	map<char, int > m;
+
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+
+
+	char c;
+
+	while (in >> c)
+	{
+		if (isalpha(c)) {
+			m[towlower(c)]++;
+		}
+	}
+
+	for (auto [소문자, 횟수] : m) {
+		cout << 소문자 << " -" << 횟수 << endl;
+	}
+
+	save("STL.cpp");
+
+}
+
+=============================================== 
+STL.cpp 2024-05-23 목요일 오후 1:39:42
+=============================================== 
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+
+#include "Mystring.h"
+
+using namespace std;
+
+//
+// map<Key, Value> - dictionary
+
+int main()
+{
+
+	map<char, int > cim;
+
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+
+
+	char c;
+
+	while (in >> c)
+	{
+		if (isalpha(c)) {
+			cim[towlower(c)]++;
+		}
+	}
+
+	//for (auto [소문자, 횟수] : m) {
+	//	cout << 소문자 << " -" << 횟수 << endl;
+	//}
+
+	cout << endl;
+	//횟수기준 내림차순으로 정렬
+
+	map<int, char,less<int>> m2;
+
+	for (auto [소문자, 횟수] : cim) {
+		m2[횟수] = 소문자;
+	}
+
+
+	for (auto [횟수, 소문자] : m2) {
+		cout << 소문자 << " -" << 횟수 << endl;
+	}
+
+	save("STL.cpp");
+
+}
+
+=============================================== 
+STL.cpp 2024-05-23 목요일 오후 1:39:49
+=============================================== 
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+
+#include "Mystring.h"
+
+using namespace std;
+
+//
+// map<Key, Value> - dictionary
+
+int main()
+{
+
+	map<char, int > cim;
+
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+
+
+	char c;
+
+	while (in >> c)
+	{
+		if (isalpha(c)) {
+			cim[towlower(c)]++;
+		}
+	}
+
+	//for (auto [소문자, 횟수] : m) {
+	//	cout << 소문자 << " -" << 횟수 << endl;
+	//}
+
+	cout << endl;
+	//횟수기준 내림차순으로 정렬
+
+	map<int, char,greater<int>> m2;
+
+	for (auto [소문자, 횟수] : cim) {
+		m2[횟수] = 소문자;
+	}
+
+
+	for (auto [횟수, 소문자] : m2) {
+		cout << 소문자 << " -" << 횟수 << endl;
+	}
+
+	save("STL.cpp");
+
+}
+
+=============================================== 
+STL.cpp 2024-05-23 목요일 오후 1:40:31
+=============================================== 
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+
+#include "Mystring.h"
+
+using namespace std;
+
+//
+// map<Key, Value> - dictionary
+
+int main()
+{
+
+	map<char, int > cim;
+
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+
+
+	char c;
+
+	while (in >> c)
+	{
+		if (isalpha(c)) {
+			cim[towlower(c)]++;
+		}
+	}
+
+	//for (auto [소문자, 횟수] : m) {
+	//	cout << 소문자 << " -" << 횟수 << endl;
+	//}
+
+	cout << endl;
+	//횟수기준 내림차순으로 정렬
+
+	multimap<int, char,greater<int>> m2;
+
+	for (auto [소문자, 횟수] : cim) {
+		/*m2[횟수] = 소문자;*/
+		m2.insert(make_pair<int, char>(소문자, 횟수));
+	}
+
+
+	for (auto [횟수, 소문자] : m2) {
+		cout << 소문자 << " -" << 횟수 << endl;
+	}
+
+	save("STL.cpp");
+
+}
+
+=============================================== 
+STL.cpp 2024-05-23 목요일 오후 1:41:47
+=============================================== 
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+
+#include "Mystring.h"
+
+using namespace std;
+
+//
+// map<Key, Value> - dictionary
+
+int main()
+{
+
+	map<char, int > cim;
+
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+
+
+	char c;
+
+	while (in >> c)
+	{
+		if (isalpha(c)) {
+			cim[towlower(c)]++;
+		}
+	}
+
+	//for (auto [소문자, 횟수] : m) {
+	//	cout << 소문자 << " -" << 횟수 << endl;
+	//}
+
+	cout << endl;
+	//횟수기준 내림차순으로 정렬
+
+	multimap<int, char> m2;
+
+	for (auto [소문자, 횟수] : cim) {
+		/*m2[횟수] = 소문자;*/
+		m2.insert(make_pair<int, char>(소문자, 횟수));
+	}
+
+
+	for (auto [횟수, 소문자] : m2) {
+		cout << 소문자 << " -" << 횟수 << endl;
+	}
+
+	save("STL.cpp");
+
+}
+
+=============================================== 
+STL.cpp 2024-05-23 목요일 오후 1:44:52
+=============================================== 
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+
+#include "Mystring.h"
+
+using namespace std;
+
+//
+// map<Key, Value> - dictionary
+
+int main()
+{
+
+	map<char, int > cim;
+
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+
+
+	char c;
+
+	while (in >> c)
+	{
+		if (isalpha(c)) {
+			cim[towlower(c)]++;
+		}
+	}
+
+	for (auto [소문자, 횟수] : cim) {
+		cout << 소문자 << " -" << 횟수 << endl;
+	}
+
+	cout << endl;
+	//횟수기준 내림차순으로 정렬
+
+	multimap<int, char> icm;
+
+	for (auto [소문자, 횟수] : cim) {
+
+		icm.insert(make_pair(횟수,소문자));
+	}
+
+
+	for (auto [횟수,소문자] : icm) {
+		cout << 소문자 << " -" << 횟수 << endl;
+	}
+
+	save("STL.cpp");
+
+}
+
+=============================================== 
+STL.cpp 2024-05-23 목요일 오후 1:47:18
+=============================================== 
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+
+#include "Mystring.h"
+
+using namespace std;
+
+//
+// map<Key, Value> - dictionary
+
+int main()
+{
+
+	map<char, int > cim;
+
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+
+
+	char c;
+
+	while (in >> c)
+	{
+		if (isalpha(c)) {
+			cim[towlower(c)]++;
+		}
+	}
+
+	for (auto [소문자, 횟수] : cim) {
+		cout << 소문자 << " -" << 횟수 << endl;
+	}
+
+	cout << endl;
+	//횟수기준 내림차순으로 정렬
+
+	multimap<int, char> icm;
+
+	for (auto [소문자, 횟수] : cim) {
+
+		icm.insert(make_pair(횟수,소문자));
+	}
+
+
+	for (auto [횟수, 소문자] : icm | views::reverse) {
+		cout << 소문자 << " -" << 횟수 << endl;
+	}
+
+	save("STL.cpp");
+
+}
+
+=============================================== 
+STL.cpp 2024-05-23 목요일 오후 1:47:28
+=============================================== 
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+
+#include "Mystring.h"
+
+using namespace std;
+
+//
+// map<Key, Value> - dictionary
+
+int main()
+{
+
+	map<char, int > cim;
+
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+
+
+	char c;
+
+	while (in >> c)
+	{
+		if (isalpha(c)) {
+			cim[towlower(c)]++;
+		}
+	}
+
+	for (auto [소문자, 횟수] : cim) {
+		cout << 소문자 << " -" << 횟수 << endl;
+	}
+
+	cout << endl;
+	//횟수기준 내림차순으로 정렬
+
+	multimap<int, char> icm;
+
+	for (auto [소문자, 횟수] : cim) {
+
+		icm.insert(make_pair(횟수,소문자));
+	}
+
+
+	for (auto [횟수, 소문자] : icm ) {
+		cout << 소문자 << " -" << 횟수 << endl;
+	}
+
+	save("STL.cpp");
+
+}
+
+=============================================== 
+STL.cpp 2024-05-23 목요일 오후 2:13:12
+=============================================== 
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+
+#include "Mystring.h"
+#include <random>
+
+default_random_engine dre;
+uniform_int_distribution<int> uid{1, 10'0000-1};
+using namespace std;
+
+
+int main()
+{
+	//[문제] uniform 분포는 uniform 한가?
+	// 출현 숫자를 10구간으로 나누어 출현횟수를 화면에 출력하라.
+	map<int, int> m; //구간,숫자
+
+	for (int i = 0; i < 1000'0000; ++i)
+	{
+		m[uid(dre) / 5000]++;
+	}
+
+	for (auto [구간, 횟수] : m) {
+		cout << 구간 << "-" << 횟수 << endl;
+	}
+
+
+	save("STL.cpp");
+
+}
+
+=============================================== 
+STL.cpp 2024-05-23 목요일 오후 2:20:49
+=============================================== 
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+
+#include "Mystring.h"
+#include <random>
+
+default_random_engine dre;
+uniform_int_distribution<int> uid{1, 10'0000-1};
+normal_distribution<double> nom{ 0.0, 0.1 };//평균값, 분포도
+using namespace std;
+
+
+int main()
+{
+	//[문제] normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현횟수를 화면에 출력하라.
+	map<int, int> m; //구간,숫자
+
+	for (int i = 0; i < 100; ++i)
+	{
+		cout << nom(dre) << endl;
+	}
+
+
+
+
+	save("STL.cpp");
+
+}
+
+=============================================== 
+STL.cpp 2024-05-23 목요일 오후 2:48:50
+=============================================== 
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+
+
+default_random_engine dre;
+uniform_int_distribution<int> uid{1, 10'0000-1};
+normal_distribution<double> nom{ 0, 0.2};//평균값, 분포도
+using namespace std;
+
+// STL_CONTAINER  unordered_set (o1), unordered_map (o1) => 표로 만들어놓음
+// unordered_set<key>  us ;  us.find("the); 즉시 o1 시간만에 알려줌
+// 키가 저장된 곳을 바로아는 메커니즘 임
+// 즉 테이블 을 이용하여 상수시간만에 찾아줌.
+// 순서가 없다는것은 ? 
+// 메모리를 어떻게 사용하길래 o(1) 만에 찾아줄까?
+//  내가만든 string 을 저장하려면 어떻게?
+int main()
+{
+	//[문제] normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현횟수를 화면에 출력하라.
+	
+
+	unordered_set<int> s{ 3,1,4,2 };
+
+	s.insert(10);
+
+	//시퀀스 컨테이너가 아님@@@
+	for (auto i : s) {
+		cout << i << endl;
+	}
+
+
+
+
+
+
+	save("STL.cpp");
+
+}
+
+=============================================== 
+STL.cpp 2024-05-28 화요일 오후 2:37:36
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+//  unordered set /map  -> 테이블
+//
+//
+//
+//
+//
+//
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+
+
+uniform_int_distribution<int> uid(1, 1000'0000);
+default_random_engine dre;
+
+const int NUM = 1000'0000;
+const int FNUM = 10'0000;
+
+array<int, NUM> a;
+array<int, FNUM> fa;
+
+using namespace std;
+
+//STL CONTANINER 찾기실력 검증
+// 1. vector 정렬안됬을떄 o(n)/ 정렬됬을떄 o(logn)  2. multiset o(logn) , 3. unordered_multiset o(1)
+// 벡터에서 찾기 (정렬 x) : 	걸린 시간 : 98154
+// 벡터에서 찾기 (정렬 o) :     28 [포인터를 쫒아가는거보다 랜덤액세스가 더빠름] => flat_set(c++23)
+// multiset 에서 찾기     :     88 [포인터를 쫒아감 트리구조이므로]
+// 언오더드 셋            :     3 
+int main()
+{
+	
+
+
+	for (int& num : a)
+		num = uid(dre);
+
+	for (int& num : fa)
+		num = uid(dre);
+
+	//벡터 준비 중...
+
+	//	걸린 시간 : 98154
+	//	63170개를 찾았다.
+	//{
+	//	cout << "벡터 준비 중..." << endl;
+	//	vector<int> v{ a.begin(),a.end() };
+	//	cout << endl;
+
+	//	int cnt{};
+
+	//	auto start = std::chrono::high_resolution_clock::now();
+
+	//	for (int num : fa)
+	//	{
+	//		auto it =  find(v.begin(), v.end(), num);
+
+	//		if (it != v.end())
+	//		{
+	//			++cnt;
+	//		}
+	//	}
+
+	//	auto end = std::chrono::high_resolution_clock::now();
+
+
+	//	auto elapsedTime = chrono::duration_cast<chrono::milliseconds>(end - start);
+	//	cout << "걸린 시간 :" << elapsedTime.count() << endl;
+	//	cout << cnt << "개를 찾았다." << endl;
+	//}
+
+
+	//셋 준비 중...
+
+	//	걸린 시간 : 114
+	//	63170개를 찾았다.
+	{
+		cout << "셋 준비 중..." << endl;
+		multiset<int> s{ a.begin(),a.end() };
+		cout << endl;
+
+		int cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+
+		for (int num : fa)
+		{
+			bool find = s.contains(num);
+
+			if (find) {
+				++cnt;
+			}
+		}
+
+		auto end = std::chrono::high_resolution_clock::now();
+
+
+		auto elapsedTime = chrono::duration_cast<chrono::milliseconds>(end - start);
+		cout << "걸린 시간 :" << elapsedTime.count() << endl;
+		cout << cnt << "개를 찾았다." << endl;
+	}
+
+	////걸린 시간 : 4
+	////	63170개를 찾았다.
+	{
+		cout << "언오더드셋 준비 중..." << endl;
+		unordered_multiset<int> us{ a.begin(),a.end() };
+		cout << endl;
+
+		int cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+
+		for (int num : fa)
+		{
+			bool find = us.contains(num);
+
+			if (find) {
+				++cnt;
+			}
+		}
+
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsedTime = chrono::duration_cast<chrono::milliseconds>(end - start);
+		cout << "걸린 시간 :" << elapsedTime.count() << endl;
+		cout << cnt << "개를 찾았다." << endl;
+	}
+
+	{
+		cout << "벡터(정렬된것) 준비 중..." << endl;
+		vector<int> v{ a.begin(),a.end() };
+		cout << endl;
+		sort(v.begin(), v.end());
+		int cnt{};
+
+		auto start = std::chrono::high_resolution_clock::now();
+
+		for (int num : fa)
+		{
+			bool find = binary_search(v.begin(), v.end(),num);
+
+			if (find) cnt++;
+
+		}
+
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsedTime = chrono::duration_cast<chrono::milliseconds>(end - start);
+		cout << "걸린 시간 :" << elapsedTime.count() << endl;
+		cout << cnt << "개를 찾았다." << endl;
+		cout << endl;
+	}
+
+	save("STL.cpp");
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-05-30 목요일 오후 2:17:25
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+//  unordered set /map  -> 테이블
+//  13주 2일째 - 
+//
+//	is_partitioned(v.begin(), v.end()); => 로 구분되어있냐?
+//	
+//
+//
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+
+
+using namespace std;
+
+//STL CONTANINER 찾기실력 검증
+// 1. vector 정렬안됬을떄 o(n)/ 정렬됬을떄 o(logn)  2. multiset o(logn) , 3. unordered_multiset o(1)
+// 벡터에서 찾기 (정렬 x) : 	걸린 시간 : 98154
+// 벡터에서 찾기 (정렬 o) :     28 [포인터를 쫒아가는거보다 랜덤액세스가 더빠름] => flat_set(c++23) (컨테이너는 아님, 어댑터임)
+// multiset 에서 찾기     :     88 [포인터를 쫒아감 트리구조이므로]
+// 언오더드 셋            :     3 
+
+template<typename 반복자, typename 조건문>
+bool my_all_of(반복자 start, 반복자 end, 조건문 f)
+{
+	if (start == end) return true;
+
+	while (start != end) {
+		if (!f(*start)) {
+			return false;
+		}
+		++start;
+	}
+	return true;
+
+}
+
+int main()
+{
+	vector<int> v{ 1,3,5,7,9,1};
+	//v에 홀수만 있니?
+	bool result =my_all_of(v.begin(), v.end(), [](const int a) {return a & 1; });
+
+	if (result) {
+		cout << "모두 홀수이다." << endl;
+	}
+
+	save("STL.cpp");
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-05-30 목요일 오후 2:18:55
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+//  unordered set /map  -> 테이블
+//  13주 2일째 - 
+//
+//	is_partitioned(v.begin(), v.end()); => 로 구분되어있냐?
+//	
+//
+//
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+
+
+using namespace std;
+
+//STL CONTANINER 찾기실력 검증
+// 1. vector 정렬안됬을떄 o(n)/ 정렬됬을떄 o(logn)  2. multiset o(logn) , 3. unordered_multiset o(1)
+// 벡터에서 찾기 (정렬 x) : 	걸린 시간 : 98154
+// 벡터에서 찾기 (정렬 o) :     28 [포인터를 쫒아가는거보다 랜덤액세스가 더빠름] => flat_set(c++23) (컨테이너는 아님, 어댑터임)
+// multiset 에서 찾기     :     88 [포인터를 쫒아감 트리구조이므로]
+// 언오더드 셋            :     3 
+
+template<typename 반복자, typename 조건문>
+bool my_all_of(반복자 start, 반복자 end, 조건문 f)
+{
+	if (start == end) return true;
+
+	while (start != end) 
+	{
+		if (!f(*start)) return false;
+		++start;
+	}
+	return true;
+
+}
+
+int main()
+{
+	vector<int> v{ 1,3,5,7,9,1};
+	//v에 홀수만 있니?
+	bool result =my_all_of(v.begin(), v.end(), [](const int a) {return a & 1; });
+
+	if (result) {
+		cout << "모두 홀수이다." << endl;
+	}
+
+	save("STL.cpp");
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-05-30 목요일 오후 2:26:04
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+//  unordered set /map  -> 테이블
+//  13주 2일째 - 
+//
+//	is_partitioned(v.begin(), v.end()); => 로 구분되어있냐?
+//	
+//
+//
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+
+
+using namespace std;
+random_device rd;
+default_random_engine dre(rd());
+uniform_int_distribution<int>uid(1, 45);
+
+//로또번호 추출기 만들어보기
+
+
+int main()
+{
+	vector<int> v(45);
+
+	iota(v.begin(), v.end(), 1);
+
+	sample(v.begin(), v.end(), ostream_iterator<int>{cout," "},6,dre);
+
+
+	save("STL.cpp");
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-05-30 목요일 오후 3:00:24
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+//  unordered set /map  -> 테이블
+//  13주 2일째 - 
+//
+//	정렬관련 알고리즘 복잡도 순으로 
+//	partition  - 조건에 따라 분리
+// ,nth_element  -  n등까지와 나머지로 분리 [선착순]
+// ,partial_sort  - n등까지는 정렬된 상태로 나머지는 무관
+// ,sort          - 전체정렬
+// ,stable_sort
+//	
+//
+//
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+#include <thread>
+
+
+using namespace std;
+random_device rd;
+default_random_engine dre(rd());
+uniform_int_distribution<int>uid(1, 45);
+
+
+
+int main()
+{	
+	vector<int> v(100);
+
+	iota(v.begin(), v.end(), 1);
+
+
+	cout << endl;
+
+	//파티션에 대해 알아 보자
+	{
+		//조건에 맞는것과 아닌것으로 분리한다.
+		//홀짝으로 분리하고 각각으로 출력하라.
+		shuffle(v.begin(), v.end(), dre);
+
+		for (int num : v) {
+			print(cout, "{:4}", num);
+		}
+		cout << endl;
+		cout << endl;
+		auto p= partition(v.begin(), v.end(), [](int n) {return n & 1; });
+		cout << " 홀수 " << endl;
+		for (auto i = v.begin(); i != p; ++i) 
+		{
+			print(cout, "{:4}", *i);
+		}
+		cout << endl;
+		cout << " 짝수 " << endl;
+		for (auto i = p; i != v.end(); ++i)
+		{
+			print(cout, "{:4}", *i);
+		}
+	}
+
+	//nth_element 대해 알아 보자
+	{
+		// n번째와 나머지로 분리하라 
+		shuffle(v.begin(), v.end(), dre);
+
+		for (int num : v) {
+			print(cout, "{:4}", num);
+		}
+		cout << endl;
+		cout << endl;
+		nth_element(v.begin(),v.begin()+30,v.end());
+		cout << " 30등까지 " << endl;
+		for (auto i = v.begin(); i != v.begin()+30; ++i)
+		{
+			print(cout, "{:4}", *i);
+		}
+		cout << endl;
+		cout << " 나머지 " << endl;
+		for (auto i = v.begin()+30; i != v.end(); ++i)
+		{
+			print(cout, "{:4}", *i);
+		}
+	}
+
+	//parital_sort 대해 알아 보자
+	{
+		// n번째까지만 정렬 나머지로 분리하라 
+		shuffle(v.begin(), v.end(), dre);
+
+		for (int num : v) {
+			print(cout, "{:4}", num);
+		}
+		cout << endl;
+		cout << endl;
+		partial_sort(v.begin(), v.begin() + 30, v.end());
+		cout << " 30등까지 " << endl;
+		for (auto i = v.begin(); i != v.begin() + 30; ++i)
+		{
+			print(cout, "{:4}", *i);
+		}
+		cout << endl;
+		cout << " 나머지 " << endl;
+		for (auto i = v.begin() + 30; i != v.end(); ++i)
+		{
+			print(cout, "{:4}", *i);
+		}
+	}
+
+
+	//sort 대해 알아 보자
+	{
+		
+		shuffle(v.begin(), v.end(), dre);
+
+		for (int num : v) {
+			print(cout, "{:4}", num);
+		}
+		cout << endl;
+		cout << endl;
+		sort(v.begin(), v.end());
+
+		for (auto i = v.begin(); i != v.end(); ++i)
+		{
+			print(cout, "{:4}", *i);
+		}
+		cout << endl;
+	}
+
+
+	save("STL.cpp");
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-05-30 목요일 오후 3:00:59
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+//  unordered set /map  -> 테이블
+//  13주 2일째 - 
+//
+//	정렬관련 알고리즘 복잡도 순으로 
+//	partition  - 조건에 따라 분리
+// ,nth_element  -  n등까지와 나머지로 분리 [선착순]
+// ,partial_sort  - n등까지는 정렬된 상태로 나머지는 무관
+// ,sort          - 전체정렬
+// ,stable_sort
+//	
+//
+//
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+#include <thread>
+
+
+using namespace std;
+random_device rd;
+default_random_engine dre(rd());
+uniform_int_distribution<int>uid(1, 45);
+
+
+
+int main()
+{	
+	vector<int> v(100);
+
+	iota(v.begin(), v.end(), 1);
+
+
+	cout << endl;
+
+	//파티션에 대해 알아 보자
+	{
+		//조건에 맞는것과 아닌것으로 분리한다.
+		//홀짝으로 분리하고 각각으로 출력하라.
+		shuffle(v.begin(), v.end(), dre);
+
+		for (int num : v) {
+			print(cout, "{:4}", num);
+		}
+		cout << endl;
+		cout << endl;
+		auto p= partition(v.begin(), v.end(), [](int n) {return n & 1; });
+		cout << " 홀수 " << endl;
+		for (auto i = v.begin(); i != p; ++i) 
+		{
+			print(cout, "{:4}", *i);
+		}
+		cout << endl;
+		cout << " 짝수 " << endl;
+		for (auto i = p; i != v.end(); ++i)
+		{
+			print(cout, "{:4}", *i);
+		}
+	}
+	cout << " nth_element" << endl;
+	//nth_element 대해 알아 보자
+	{
+		// n번째와 나머지로 분리하라 
+		shuffle(v.begin(), v.end(), dre);
+
+		for (int num : v) {
+			print(cout, "{:4}", num);
+		}
+		cout << endl;
+		cout << endl;
+		nth_element(v.begin(),v.begin()+30,v.end());
+		cout << " 30등까지 " << endl;
+		for (auto i = v.begin(); i != v.begin()+30; ++i)
+		{
+			print(cout, "{:4}", *i);
+		}
+		cout << endl;
+		cout << " 나머지 " << endl;
+		for (auto i = v.begin()+30; i != v.end(); ++i)
+		{
+			print(cout, "{:4}", *i);
+		}
+	}
+	cout << " parital_sort" << endl;
+	//parital_sort 대해 알아 보자
+	{
+		// n번째까지만 정렬 나머지로 분리하라 
+		shuffle(v.begin(), v.end(), dre);
+
+		for (int num : v) {
+			print(cout, "{:4}", num);
+		}
+		cout << endl;
+		cout << endl;
+		partial_sort(v.begin(), v.begin() + 30, v.end());
+		cout << " 30등까지 " << endl;
+		for (auto i = v.begin(); i != v.begin() + 30; ++i)
+		{
+			print(cout, "{:4}", *i);
+		}
+		cout << endl;
+		cout << " 나머지 " << endl;
+		for (auto i = v.begin() + 30; i != v.end(); ++i)
+		{
+			print(cout, "{:4}", *i);
+		}
+	}
+
+
+	//sort 대해 알아 보자
+	cout << " sort" << endl;
+	{
+		
+		shuffle(v.begin(), v.end(), dre);
+
+		for (int num : v) {
+			print(cout, "{:4}", num);
+		}
+		cout << endl;
+		cout << endl;
+		sort(v.begin(), v.end());
+
+		for (auto i = v.begin(); i != v.end(); ++i)
+		{
+			print(cout, "{:4}", *i);
+		}
+		cout << endl;
+	}
+
+
+	save("STL.cpp");
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-05-30 목요일 오후 3:10:51
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+//  unordered set /map  -> 테이블
+//  13주 2일째 - 
+//
+//	정렬관련 알고리즘 복잡도 순으로 
+//	partition  - 조건에 따라 분리
+// ,nth_element  -  n등까지와 나머지로 분리 [선착순]
+// ,partial_sort  - n등까지는 정렬된 상태로 나머지는 무관
+// ,sort          - 전체정렬
+// ,stable_sort
+//	
+//
+//
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+#include <thread>
+
+
+using namespace std;
+random_device rd;
+default_random_engine dre(rd());
+uniform_int_distribution<int>uid(1, 45);
+uniform_int_distribution<int>uidC('A', 'Z');
+struct  Dog
+{
+	Dog()
+	{
+		c = uidC(dre);
+		n = uid(dre);
+	}
+	char c;
+	int n;
+};
+
+int main()
+{	
+	array<Dog,100> dogs;
+
+	sort(dogs.begin(), dogs.end(), [](const Dog& dog1, const Dog& dog2) 
+		{return dog1.c < dog2.c; }
+	);
+
+	for (auto [글자,숫자] : dogs) {
+		cout << 글자 << " ," << 숫자 << endl;
+	}
+
+
+
+	save("STL.cpp");
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-06-04 화요일 오후 1:41:19
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+//  unordered set /map  -> 테이블
+//  13주 2일째 - 
+//
+//	정렬관련 알고리즘 복잡도 순으로 
+//	partition  - 조건에 따라 분리
+// ,nth_element  -  n등까지와 나머지로 분리 [선착순]
+// ,partial_sort  - n등까지는 정렬된 상태로 나머지는 무관
+// ,sort          - 전체정렬
+// ,stable_sort
+//	
+//
+//
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+#include <thread>
+
+
+using namespace std;
+random_device rd;
+default_random_engine dre(rd());
+uniform_int_distribution<int>uid(1, 45);
+uniform_int_distribution<int>uidC('A', 'Z');
+struct  Dog
+{
+
+	char c = uidC(dre);
+	int n{ uid(dre) };
+
+};
+
+int main()
+{	
+	array<Dog,100> dogs;
+
+	/*sort(dogs.begin(), dogs.end(), [](const Dog& dog1, const Dog& dog2) 
+		{return dog1.c < dog2.c; }
+	);*/
+
+	
+	/*ranges::sort(dogs, [](const Dog& dog1, const Dog& dog2)
+		{return dog1.c < dog2.c; });*/
+
+	ranges::sort(dogs, {}, &Dog::c);
+
+
+
+
+
+
+	for (auto& [글자,숫자] : dogs) {
+		cout << 글자 << " ," << 숫자 << endl;
+	}
+
+
+
+	save("STL.cpp");
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-06-04 화요일 오후 1:41:32
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+//  unordered set /map  -> 테이블
+//  13주 2일째 - 
+//
+//	정렬관련 알고리즘 복잡도 순으로 
+//	partition  - 조건에 따라 분리
+// ,nth_element  -  n등까지와 나머지로 분리 [선착순]
+// ,partial_sort  - n등까지는 정렬된 상태로 나머지는 무관
+// ,sort          - 전체정렬
+// ,stable_sort
+//	
+//
+//
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+#include <thread>
+
+
+using namespace std;
+random_device rd;
+default_random_engine dre(rd());
+uniform_int_distribution<int>uid(1, 45);
+uniform_int_distribution<int>uidC('A', 'Z');
+struct  Dog
+{
+
+	char c = uidC(dre);
+	int n{ uid(dre) };
+
+};
+
+int main()
+{	
+	array<Dog,100> dogs;
+
+	/*sort(dogs.begin(), dogs.end(), [](const Dog& dog1, const Dog& dog2) 
+		{return dog1.c < dog2.c; }
+	);*/
+
+	
+	/*ranges::sort(dogs, [](const Dog& dog1, const Dog& dog2)
+		{return dog1.c < dog2.c; });*/
+
+	ranges::sort(dogs, {}, &Dog::c);
+
+	ranges::sort(dogs, {}, &Dog::n);
+
+
+
+
+	for (auto& [글자,숫자] : dogs) {
+		cout << 글자 << " ," << 숫자 << endl;
+	}
+
+
+
+	save("STL.cpp");
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-06-04 화요일 오후 1:42:35
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+//  unordered set /map  -> 테이블
+//  13주 2일째 - 
+//
+//	정렬관련 알고리즘 복잡도 순으로 
+//	partition  - 조건에 따라 분리
+// ,nth_element  -  n등까지와 나머지로 분리 [선착순]
+// ,partial_sort  - n등까지는 정렬된 상태로 나머지는 무관
+// ,sort          - 전체정렬
+// ,stable_sort
+//	
+//
+//
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+#include <thread>
+
+
+using namespace std;
+random_device rd;
+default_random_engine dre(rd());
+uniform_int_distribution<int>uid(1, 45);
+uniform_int_distribution<int>uidC('A', 'Z');
+struct  Dog
+{
+
+	char c = uidC(dre);
+	int n{ uid(dre) };
+
+};
+
+int main()
+{	
+	array<Dog,100> dogs;
+
+	/*sort(dogs.begin(), dogs.end(), [](const Dog& dog1, const Dog& dog2) 
+		{return dog1.c < dog2.c; }
+	);*/
+
+	
+	/*ranges::sort(dogs, [](const Dog& dog1, const Dog& dog2)
+		{return dog1.c < dog2.c; });*/
+
+	ranges::sort(dogs, {}, &Dog::c);
+
+	ranges::stable_sort(dogs, {}, &Dog::n);
+
+
+
+
+	for (auto& [글자,숫자] : dogs) {
+		cout << 글자 << " ," << 숫자 << endl;
+	}
+
+
+
+	save("STL.cpp");
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-06-04 화요일 오후 1:49:52
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+// 14주 1일쨰
+// 
+// 
+// STL Alogrithm  => non modifying   / modifying   /  sort and realated 
+// non modifying: copy(src,dest) :
+//
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+#include <thread>
+
+
+using namespace std;
+
+int main()
+{	
+	array<int, 10> a{ 1,2,3,4,5,6,7,8,9,10 };
+
+	copy(a.begin(), a.end(), ostream_iterator<int>{cout, " "});
+
+
+	save("STL.cpp");
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-06-04 화요일 오후 1:54:41
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+// 14주 1일쨰
+// 
+// 
+// STL Alogrithm  => non modifying   / modifying   /  sort and realated 
+// non modifying: copy(src,dest) :
+//
+//
+// distacne 구현
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+#include <thread>
+
+
+using namespace std;
+
+int main()
+{	
+	list<int> v{ 1,2,3,4,5 };
+
+	auto i = distance(v.begin(), v.end());
+	cout << i << endl;
+	save("STL.cpp");
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-06-04 화요일 오후 1:55:46
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+// 14주 1일쨰
+// 
+// 
+// STL Alogrithm  => non modifying   / modifying   /  sort and realated 
+// non modifying: copy(src,dest) :
+//
+//
+// distacne 구현
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+#include <thread>
+
+
+using namespace std;
+
+int main()
+{	
+	list<int> v{ 1,2,3,4,5 };
+
+	auto i = distance(v.end(), v.begin());
+	cout << i << endl;
+	save("STL.cpp");
+	
+
+}
+
+=============================================== 
+STL.cpp 2024-06-04 화요일 오후 2:58:45
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+// 14주 1일쨰
+// 
+// 
+// STL Alogrithm  => non modifying   / modifying   /  sort and realated 
+// non modifying: copy(src,dest) :
+//
+//
+// distacne 구현
+// tag dispatching
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+#include <thread>
+#include <forward_list>
+
+using namespace std;
+
+
+template <typename T>
+T add(T a, T b) {
+	return a + b;
+}
+
+int main()
+{	
+	cout << add(1, 3) << endl;
+	cout << add(1.2, 3.4) << endl;
+	cout << add<string>("2024년", "6월 4일") << endl;
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-06-04 화요일 오후 2:59:22
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+// 14주 1일쨰
+// 
+// 
+// STL Alogrithm  => non modifying   / modifying   /  sort and realated 
+// non modifying: copy(src,dest) :
+//
+//
+// distacne 구현
+// tag dispatching
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+#include <thread>
+#include <forward_list>
+
+using namespace std;
+
+
+template <typename T>
+T add(T a, T b) {
+	return a + b;
+}
+
+int main()
+{	
+	cout << add(1, 3) << endl;
+	cout << add(1.2, 3.4) << endl;
+	cout << add("2024년"s, "6월 4일"s) << endl;
+
+	save("STL.cpp");
+}
+
+=============================================== 
+STL.cpp 2024-06-04 화요일 오후 3:04:51
+=============================================== 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//     
+// 14주 1일쨰
+// 
+// 
+// STL Alogrithm  => non modifying   / modifying   /  sort and realated 
+// non modifying: copy(src,dest) :
+//
+//
+// distacne 구현
+// tag dispatching
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <queue>
+#include <list>
+#include <set>
+#include <map>
+#include <ranges>
+#include <array>
+#include "Mystring.h"
+#include <random>
+#include <unordered_set>
+#include <unordered_map>
+#include <vector>
+#include <numeric>
+#include <thread>
+#include <forward_list>
+
+using namespace std;
+
+template<class T>
+concept 덧셈가능 = is_integral_v<T> || is_floating_point_v<T>;
+
+template <덧셈가능 T>
+T add(T a, T b) {
+	return a + b; 
+}
+
+int main()
+{	
+	cout << add(1, 3) << endl;
+	cout << add(1.2, 3.4) << endl;
+	//cout << add("2024년", "6월 4일") << endl;
+
+	save("STL.cpp");
+}
